@@ -12,9 +12,9 @@ I tried to realize my own ideas:
       Alien-forehead: start game
       Info window on bottom: Click: open Hall of Fame
   - you can find 3 difficulty:
-      1. Simon
-      2. Super-human
-      3. Alien-intelligence
+      - Simon
+      - Super-human
+      - Alien-intelligence
   - I made some animations with css
   - I also made a Hall of Fame where stored the records of players. I did not use database, instead I save  the data to json files. Only  the top 10 players saved (name with country, date and performed turn).
   - If you choose strict mode: on, then you can save your record. 
