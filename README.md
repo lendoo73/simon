@@ -17,4 +17,5 @@ I tried to realize my own ideas:
       - Alien-intelligence
   - I made some animations with css
   - I also made a Hall of Fame where stored the records of players. I did not use database, instead I save  the data to json files. Only  the top 10 players saved (name with country, date and performed turn).
-  - If you choose strict mode: on, then you can save your record. 
+  - If you choose strict mode: on, then you can save your record.
+  - Info and restart button: hidden on top by default. Hover over the top area to open it.
