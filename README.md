@@ -4,9 +4,9 @@
 
 This is a FreeCodeCamp inspired project.
 
-I did not followed strictly the user story because I did not want to build another circle- or squaer- or triangle-style Simon game.
+I did not followed strictly the user story because I did not want to build another circle- or square- or triangle-style Simon game.
 I tried to realize my own ideas:
-  - The menu a bit tricky: (click)
+  - The menu a bit tricky: (click on...)
       Alien-mouth: change strict mode on/off
       Alien-eye: left: lower difficulty, right: raise: difficulty
       Alien-forehead: start game
