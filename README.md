@@ -1,3 +1,3 @@
 # simon
 
-<a href="http://example.com/" target="_blank">Build a Simon Game</a>
+<a href="https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-a-simon-game" target="_blank">Build a Simon Game</a>
