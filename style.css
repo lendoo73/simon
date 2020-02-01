@@ -1,0 +1,800 @@
+* {
+    --zero: 0px;
+    --ufoWidth: 300px;
+    --ufoHeight: 200px;
+    box-sizing: border-box;
+}
+
+*:focus {
+	outline: none;
+}
+
+html {
+    background-image: url(image/sky-with-stars-illustration-957061.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+/*  --------------- Header bar ---------------   */
+header {
+    position: fixed;
+    display: flex;
+    align-items: baseline;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: transparent;
+    padding: 8px;
+    transition: 0.8s;
+    font-family: sans-serif;
+    opacity: 0;
+    border-bottom: 4px solid transparent;
+    z-index: 1;
+}
+
+header p {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 20px;
+    width: fit-content;
+}
+
+#turn {
+    display: none;
+}
+
+header:hover {
+    color: white;
+    opacity: 1;
+}
+
+.right {
+    flex-grow: 4;
+    cursor: pointer;
+}
+
+.container {
+    background-image: url(image/land.png);
+    background-position: 0% -2500%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+    transition: 2s;
+}
+
+header, .start-container, #counter {
+    /* Set neon color */
+    --neon-text-color: Lime;
+    --neon-border-color: #08f;
+    text-align: center;
+}
+
+#alien img {
+    width: 470px;
+}
+
+#alien img, #menu h1 {
+    transition: 2s;   
+}
+
+[alt='left-eye'] {
+    cursor: not-allowed;
+}
+
+.neonContainer {
+    border-image-source: linear-gradient(to right, Aqua, GreenYellow );
+    border-image-slice: 1;
+    color: #fff;
+    animation-name: flicker;
+    animation-duration: 1.5s;
+    animation-iteration-count:infinite; /* the animation should be played infinite times (for ever) */
+    animation-direction: alternate; /* Play the animation forwards first, then backwards */
+}
+
+#menu h1 {
+    border-width: 8px;
+    border-style: solid;
+    font-size: 50px;
+    font-weight: 200;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 30px 90px;
+}
+
+#menu h1 sup {
+    font-size: 25px;
+}
+
+#menu h1::selection {
+    background-color: var(--neon-border-color);
+    color: var(--neon-text-color);
+}
+
+/* Animate neon flicker */
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {  
+        text-shadow:
+            -1px -1px 5px #fff,
+            2px 2px 10px #fff,
+            0 0 5px var(--neon-text-color),
+            0 0 10px var(--neon-text-color),
+            0 0 15px var(--neon-text-color),
+            0 0 20px var(--neon-text-color),
+            0 0 25px var(--neon-text-color);
+        box-shadow:
+            0 0 5px #fff,
+            inset 0 0 5px #fff,
+            0 0 10px var(--neon-border-color),
+            inset 0 0 10px var(--neon-border-color),
+            0 0 20px var(--neon-border-color),
+            inset 0 0 20px var(--neon-border-color);        
+    }
+    20%, 24%, 55% {        
+        text-shadow: none;
+        box-shadow: none;
+    }    
+}
+
+/*  --------------- Hall of Fame modal: ---------------   */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-image: url("image/halloffame.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.modalContent {
+	position: relative;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: auto;
+    padding: 0;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.92) , 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+    animation-name: animateTop;
+    animation-duration: 0.4s;
+}
+
+@keyframes animateTop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.close {
+	color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, 
+.close:focus {
+	color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modalHeader,
+.modalBody,
+.modalFooter {
+	padding: 2px 16px;
+}
+
+.modalHeader {
+    background-color: rgba(220, 220, 220, 0.8);
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 200;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.modalBody table {
+	width: 100%;
+    border-collapse: collapse;
+}
+
+.modalBody {
+    color: rgba(220, 220, 220, 0.9);    
+}
+
+.modalBody td, th, .modalBody p {
+	border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 25px;
+    text-align: left;
+}
+
+#inputContainer, .modalBody h2, input {
+	text-align: center;
+}
+
+#inputContainer {
+    background-color: rgba(220, 220, 220, 0.9);
+}
+
+input {
+    background-color: transparent;
+    width: 100%;
+    font-size: 30px;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.modalBody tr:nth-child(even) {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+td img {
+    float: right;
+    margin-top: 0;
+}
+
+.modalFooter {
+	background-color: rgba(220, 220, 220, 0.9);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+/*  --------------- Star Wars effect ---------------   */
+.fade {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 20vh;
+    top: -25px;
+    background-image: linear-gradient(0deg, transparent, black 75%);
+    z-index: 1;
+}
+
+.star-wars {
+	opacity: 0;
+    transition: 2s;
+    transition-delay: 2s;
+    justify-content: center;
+    position: relative;
+    text-align: justify;
+    padding-top: 800px;
+    height: 400px; /* This is a magic number based on the context in which this snippet is used and effects the perspective */
+    perspective: 400px; /* This sets allows us to transform the text on a 3D plane, and is somewhat a magic number */
+}
+
+.crawl { /* it contains the properties that will transform the text and be animated	*/
+    position: relative;
+    top: -100px; /* Making sure the text is fully off the screen at the start and end of the animation */
+    width: 290%;
+    left: -100%;
+    animation: crawl 30s linear;
+    animation-play-state: paused;
+    animation-delay: 3s; /* Must wait to download Star Wars music */
+    color: aliceblue;
+    text-align: center;
+}
+
+.crawl .title, .crawl h1 {
+    font-size: 300px;
+}
+
+.crawl > .title h1 {
+    margin: 0 0 10px;
+    text-transform: uppercase;
+}
+
+.crawl p {
+	font-size: 130px;
+}
+
+@keyframes crawl {
+    0% {
+        top: 0; /* The element starts below the screen */
+        transform: rotateX(20deg) translateZ(0); /* Rotate the text 20 degrees but keep it close to the viewer */
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        top: -9000px; /* This is a magic number, but using a big one to make sure the text is fully off the screen at the end */
+        transform: rotateX(25deg) translateZ(-2500px); /* Slightly increasing the rotation at the end and moving the text far away from the viewer */
+        opacity: 0;
+    }
+}
+
+
+/*  --------------- Ufo landing (start game) ---------------   */
+.ufo-container {
+    background-color: rgba(0, 0, 0, 0.7);
+	position: relative;
+    height: 100%;
+    display: none;
+}
+
+#counter, .moon-container {
+	opacity: 0;
+    transition: 2s;
+    position: absolute;
+    top: 0%;
+}
+
+#counter {
+	left: 50%;
+    transform: translate(-50%, 0%);
+    border-width: 8px;
+    border-style: outset;
+    font-weight: 200;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 30px 90px;
+    font-size: 30px;
+}
+
+.moon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(image/moon.png);
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    right: 0%;
+    z-index: 2;
+}
+
+.moon-container img {
+/*    position: absolute;*/
+    width: 80px;
+    margin: 0 auto;
+    filter: grayscale(100%);
+}
+
+.ufo {
+    position: absolute;
+    width: var(--ufoWidth);
+    transition: 0.5s;
+}
+
+.ufo img {
+    width: var(--ufoWidth);
+    height: var(--ufoHeight);
+}
+
+.shadeOn {
+    filter: brightness(0.2);
+}
+
+.shadeOff {
+    filter: brightness(1);
+}
+
+#ufoRed {
+    top: 60%;
+    left: 5%;
+    animation-fill-mode: forwards;
+    animation: ufoRedStart 2s ease-in-out;
+}
+
+.reflectorOn {
+    opacity: 0.51203;
+}
+
+.reflectorOff {
+    opacity: 0;
+}
+
+@keyframes ufoRedStart {
+    0% {
+        top: -30%;
+        left: -30%;
+        filter: brightness(0);
+    }
+    
+    99% {
+        filter: brightness(1);
+    }
+    100% {
+        top: 60%;
+        left: 5%;
+        filter: brightness(0.2);
+    }
+}
+
+#ufoYellow {
+    top: 25%;
+    left: 35%;
+    animation-fill-mode: forwards;
+    animation: ufoYellowStart 2s ease-in-out;
+}
+
+@keyframes ufoYellowStart {
+    0% {
+        top: -30%;
+        left: 35%;
+        filter: brightness(0);
+    }
+    
+    99% {
+        filter: brightness(1);
+    }
+    100% {
+        top: 25%;
+        left: 35%;
+        filter: brightness(0.2);
+    }
+}
+
+#ufoGreen {
+    top: 50%;
+    left: 65%;
+    animation-fill-mode: forwards;
+    animation: ufoGreenStart 2s ease-in-out;
+}
+
+#ufoGreen, #ufoGreen img {
+    width: 350px;
+}
+
+@keyframes ufoGreenStart {
+    0% {
+        top: -30%;
+        left: 95%;
+        filter: brightness(0);
+    }
+    
+    99% {
+        filter: brightness(1);
+    }
+    100% {
+        top: 50%;
+        left: 65%;
+        filter: brightness(0.2);
+    }
+}
+
+#ufoBlue {
+    top: 400px;
+    left: 35%;
+    animation-fill-mode: forwards;
+    animation: ufoBlueStart 2s ease-in-out;
+}
+
+@keyframes ufoBlueStart {
+    0% {
+        top: 300px;
+        left: 15%;
+        filter: brightness(0);
+    }
+    
+    99% {
+        filter: brightness(1);
+    }
+    100% {
+        top: 400px;
+        left: 35%;
+        filter: brightness(0.2);
+    }
+}
+
+#ufoBlue img {
+	animation-fill-mode: forwards;
+    animation: ufoBlueGrow 2s ease-in-out;
+}
+
+@keyframes ufoBlueGrow {
+    0% {
+        width: 3px;
+        height: 2px;
+    }
+    100% {
+        width: var(--ufoWidth);
+        height: var(--ufoHeight);
+    }
+}
+
+/*  --------------------    Style footer    --------------------    */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    --fccGreen: transparent;
+    background-color: var(--fccGreen);
+    color: transparent;
+    text-align: left;
+    padding: 8px;
+    transition: background-color 0.8s;
+    opacity: 0;
+    font-family: sans-serif;
+}
+
+footer img {
+    width: 40px;
+    margin: -10px 10px;
+    float: right;
+    opacity: inherit;
+}
+
+footer:hover {
+    --fccGreen: #006600;
+    background-color: var(--fccGreen);
+    color: white;
+    opacity: 1;
+}
+
+/*  --------------------    Style mobile device    --------------------    */
+@media (max-width: 576px) {
+    /*  --------------- Header bar ---------------   */
+    header {
+        display: block;
+        padding: 8px;
+        border-bottom: 4px solid transparent;
+        z-index: 1;
+    }
+
+    header p {
+        font-size: 20px;
+    }
+    
+    #alien {
+        position: relative;
+        transform: scale(0.7);
+        height: 100vh;
+    }
+    
+    #alien img {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    #menu {
+        position: absolute;
+        bottom: 0%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        width: 100%;
+    }
+    
+    #menu h1 {
+        border-width: 3px;
+        font-size: 22px;
+        font-weight: 350;
+        padding: 10px 20px;
+    }
+
+    #menu h1 sup {
+        font-size: 16px;
+    }
+    /*  --------------- Hall of Fame modal: ---------------   */
+    .modal {
+        padding-top: 10px;
+    }
+
+    .modalContent {
+        width: 95%;
+    }
+
+    .close {
+        font-size: 30px;
+        margin-right: 15px;
+    }
+    
+    .modalHeader,
+    .modalBody,
+    .modalFooter {
+        padding: 2px 2px;
+    }
+
+    .modalHeader {
+        font-size: 20px;
+    }
+    .modalBody td, th, .modalBody p {
+        padding: 4px 2px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    input {
+        font-size: 25px;
+    }
+
+    td img {
+        transform: scale(0.7);
+        padding-top: 0;
+        margin-top: -5px;
+    }
+    
+    /*  --------------- Star Wars effect ---------------   */
+    .star-wars {
+        perspective: 1000px; 
+        padding-top: 50px;
+    }
+    
+    .crawl { 
+        width: 100%;
+        left: -30%;
+        animation: crawl 40s linear;
+        animation-play-state: paused;
+    }
+    .crawl .title, .crawl h1 {
+        font-size: 80px;
+    }
+
+    .crawl > .title h1 {
+        margin: 0 0 10px;
+        text-transform: uppercase;
+    }
+
+    .crawl p {
+        font-size: 40px;
+    }
+    
+    @keyframes crawl {
+        0% {
+            top: 0; 
+            transform: rotateX(20deg) translateZ(0); /* Rotate the text 20 degrees but keep it close to the viewer */
+            opacity: 1;
+        }
+        1% {
+            width: 170%;
+        }
+        95% {
+            opacity: 1;
+        }
+        99% {
+            width: 170%;
+        }
+        100% {
+            top: -5100px; /* This is a magic number, but using a big one to make sure the text is fully off the screen at the end */
+            transform: rotateX(35deg) translateZ(-2500px); /* Slightly increasing the rotation at the end and moving the text far away from the viewer */
+            opacity: 0;
+            width: 100%;
+        }
+    }
+    
+    /*  --------------- Ufo landing (start game) ---------------   */
+    
+    * {
+        --ufoWidth: 200px;
+        --ufoHeight: 150px;
+    }
+    
+    #counter {
+        border-width: 4px;
+        padding: 20px 60px;
+        font-size: 20px;
+    }
+
+    .moon-container img {
+        width: 70px;
+    }
+
+    #ufoRed {
+        top: 50%;
+        left: 1%;
+    }
+
+    @keyframes ufoRedStart {
+        0% {
+            top: -30%;
+            left: -30%;
+            filter: brightness(0);
+        }
+
+        99% {
+            filter: brightness(1);
+        }
+        100% {
+            top: 50%;
+            left: 1%;
+            filter: brightness(0.2);
+        }
+    }
+
+    #ufoYellow {
+        top: 10%;
+        left: 30%;
+    }
+
+    @keyframes ufoYellowStart {
+        0% {
+            top: -30%;
+            left: 33%;
+            filter: brightness(0);
+        }
+
+        99% {
+            filter: brightness(1);
+        }
+        100% {
+            top: 10%;
+            left: 30%;
+            filter: brightness(0.2);
+        }
+    }
+
+    #ufoGreen {
+        top: 45%;
+        left: 55%;
+    }
+
+    #ufoGreen, #ufoGreen img {
+        width: var(--ufoWidth);
+        height: 120px;
+    }
+
+    @keyframes ufoGreenStart {
+        0% {
+            top: -30%;
+            left: 95%;
+            filter: brightness(0);
+        }
+
+        99% {
+            filter: brightness(1);
+        }
+        100% {
+            top: 45%;
+            left: 55%;
+            filter: brightness(0.2);
+        }
+    }
+
+    #ufoBlue {
+        top: 70%;
+        left: 30%;
+    }
+
+    @keyframes ufoBlueStart {
+        0% {
+            top: 300px;
+            left: 15%;
+            filter: brightness(0);
+        }
+
+        99% {
+            filter: brightness(1);
+        }
+        100% {
+            top: 70%;
+            left: 30%;
+            filter: brightness(0.2);
+        }
+    }
+
+    @keyframes ufoBlueGrow {
+        0% {
+            width: 3px;
+            height: 2px;
+        }
+        100% {
+            width: var(--ufoWidth);
+            height: var(--ufoHeight);
+        }
+    }
+    
+}
