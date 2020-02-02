@@ -684,12 +684,22 @@ const checkDifficulty = () => {
     if (mySimon.difficulty === "simon") return;
     
     const changePosition = (ufoArray) => {
-        const position = [
-            ["60%", "5%"],
-            ["25%", "35%"],
-            ["50%", "65%"],
-            ["400px", "35%"]
-        ];
+        const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        
+        const position = width < 576 
+            ? [
+                  ["50%", "1%"],
+                  ["20%", "30%"],
+                  ["50%", "55%"],
+                  ["80%", "30%"]
+              ]
+            : [
+                  ["60%", "5%"],
+                  ["25%", "35%"],
+                  ["50%", "65%"],
+                  ["400px", "35%"]
+              ]
+        ;
         ufoArray.forEach((color, index) => {
             ufo[color].style.top = position[index][0];
             ufo[color].style.left = position[index][1];
@@ -807,7 +817,7 @@ const changeMoon = () => {
         }
     } else {
         // ufo turn
-        dom.moon.style.left = "90%";
+        dom.moon.style.left = "80%";
         dom.moon.style.backgroundSize = "contain";
         dom.moonImg.setAttribute("src", "image/alien.png");
     }
