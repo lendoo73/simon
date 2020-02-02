@@ -679,8 +679,8 @@ footer:hover {
     /*  --------------- Ufo landing (start game) ---------------   */
     
     * {
-        --ufoWidth: 200px;
-        --ufoHeight: 150px;
+        --ufoWidth: 100px;
+        --ufoHeight: 70px;
     }
     
     #counter {
@@ -716,7 +716,7 @@ footer:hover {
     }
 
     #ufoYellow {
-        top: 10%;
+        top: 20%;
         left: 30%;
     }
 
@@ -731,20 +731,20 @@ footer:hover {
             filter: brightness(1);
         }
         100% {
-            top: 10%;
+            top: 20%;
             left: 30%;
             filter: brightness(0.2);
         }
     }
 
     #ufoGreen {
-        top: 45%;
+        top: 50%;
         left: 55%;
     }
 
     #ufoGreen, #ufoGreen img {
         width: var(--ufoWidth);
-        height: 120px;
+        height: var(--ufoHeight);
     }
 
     @keyframes ufoGreenStart {
@@ -758,14 +758,14 @@ footer:hover {
             filter: brightness(1);
         }
         100% {
-            top: 45%;
+            top: 50%;
             left: 55%;
             filter: brightness(0.2);
         }
     }
 
     #ufoBlue {
-        top: 70%;
+        top: 80%;
         left: 30%;
     }
 
@@ -780,7 +780,7 @@ footer:hover {
             filter: brightness(1);
         }
         100% {
-            top: 70%;
+            top: 80%;
             left: 30%;
             filter: brightness(0.2);
         }
