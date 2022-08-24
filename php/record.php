@@ -2,7 +2,7 @@
 // declare variables:
 $data = $name = $countryCode = $turn = $difficulty = ""; // from user input
 $json = $file = $content = $decoded = $encoded = ""; // for file handling
-$index = $lastRecord = $currentIndex = $previousTurn = $change = ""; // dor sorting records
+$index = $lastRecord = $currentIndex = $previousTurn = $change = ""; // for sorting records
 
 // functions:
 // sanitize user input:
